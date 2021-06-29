@@ -1,3 +1,5 @@
+Lesson - 1
+
 Node.js is
 - A cross-platform, open source runtime environment which allows us to run Javascript on a computer/server
 - Read, Delete, Update Files
@@ -9,6 +11,8 @@ Node.js Popluarity Factors
 - Huge ecosystem of open source packages (npm)
 - Great for real-time services (like chat systems)
 
+Lesson - 2
+
 Installing Node.js
 - Site : https://nodejs.org/en/download/
 - LTS : Latest Stable Version
@@ -19,6 +23,8 @@ Installing Node.js
     or, [node --version]
 - My current Version: 14.15.5
 - Command to run Javascript in node in terminal : [node 'file_name']
+
+Lesson - 3
 
 Javascript Engine
 - Computers do not understand Javascript
