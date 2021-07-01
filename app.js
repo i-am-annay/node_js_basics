@@ -1,29 +1,30 @@
 /*
-    Lesson 12: Creating A Server
+  Lesson 19 : Basic Routing
 */
 
-/*
-var http = require("http");
-
-//createSerever         - Creates a Server, takes a function as argument which takes in request and the response
-var server = http.createServer(function (request, response) {
-  console.log("Request was made: " + request.url); // Logs after every refresh / request
-  response.writeHead(200, { "Content-Type": "text/plain" });
-  response.end("Hi people!");
-});
-
-//listen('portNumber', 'ip of localhost')   - Serves as a listener
-server.listen(3000, "127.0.0.1");
-console.log("Listening to port 30000");
-*/
-
-/*
-    Lesson 14: Readable Streams
-*/
 var http = require("http");
 var fs = require("fs");
 
-var myReadStream = fs.createReadStream(__dirname + "/readMe.txt", "utf-8");
-myReadStream.on("data", function (data) {
-  console.log(data);
+var server = http.createServer(function (request, response) {
+  console.log("Request was made at : " + request.url);
+  if (request.url === "/home" || request.url === "/") {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    fs.createReadStream(__dirname + "/index.html", "utf-8").pipe(response);
+  } else if (request.url === "/contact") {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    fs.createReadStream(__dirname + "/contact.html", "utf-8").pipe(response);
+  } else if (request.url === "/api/ninjas") {
+    var ninjas = [
+      { name: "ryu", age: 29 },
+      { name: "yoshi", age: 32 },
+    ];
+    response.writeHead(200, { "Content-Type": "application/json" });
+    response.end(JSON.stringify(ninjas));
+  } else {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    fs.createReadStream(__dirname + "/error.html", "utf-8").pipe(response);
+  }
 });
+
+server.listen(3000, "127.0.0.1");
+console.log("Listening to port 3000");
