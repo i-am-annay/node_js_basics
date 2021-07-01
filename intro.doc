@@ -1,31 +1,29 @@
-Node.js is
-- A cross-platform, open source runtime environment which allows us to run Javascript on a computer/server
-- Read, Delete, Update Files
-- Easily Communicate with a database
+Client  --(Request)-->    Server
+Client  <--(Response)--   Server
 
-Node.js Popluarity Factors
-- Uses Javascript
-- Very Fast (Runs on the V8 Engine and uses non-blocking code)
-- Huge ecosystem of open source packages (npm)
-- Great for real-time services (like chat systems)
+Protocols : A set of rules that 2 sides agree to use when communicating
 
-Installing Node.js
-- Site : https://nodejs.org/en/download/
-- LTS : Latest Stable Version
-- Current: Latest released but not Stable
+    Client ------(Socket)------ Server
+    ip:127.21.5.2               ip:128.32.1.3
+    
+    -Socket = Channel via which information can be sent/recieved
 
-    After Installing Check Installation from the command line using command:
-    [node -v] 
-    or, [node --version]
-- My current Version: 14.15.5
-- Command to run Javascript in node in terminal : [node 'file_name']
+For Web Applications the protocol used is TCP [Transmission Control Protocol]
 
-Javascript Engine
-- Computers do not understand Javascript
-- A Javascript engine takes Javascript, and converts it into something that it does understand: machine code
+    Socket
+    <-----------0---0---0---0-- 
+                    Packets
 
-V8 engine
-- Node.js is written in C++
-- At the heart of Node.js is the V8 engine
-- The V8 engine converts our Javascript into machine code
-    Javascript -> [C++ + Node.js + V8] -> Machine Code
+Ports
+    - A program running on a computer can listen for requests sent to a particular port number
+    
+
+
+Client  --(Request) [requst + request headers]-->       Server
+Client  <--(Response)[response + response headers]--    Server
+
+Response Headers: 
+    - Content Type
+    - Status
+
+After Setting up the server enter 127.0.0.1:3000 inside browser for seeing response
